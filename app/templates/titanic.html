@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas {
+            max-width: 400px; 
+            max-height: 570px;
+        }
+        img {
+            max-width: 300px;
+            max-height: 570px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Titanic Survival Chart</h1>
+    <p>This chart shows the number of survivors from the Titanic disaster based on Sex.</p>
+    <p>Data Source: Titanic Dataset</p>
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <canvas id="survivalChart"></canvas>
+        <img src='images/titanic.jpg' alt="Titanic">
+    </div>
+    <script>
+
+        const survivalData = {{ survival_data|safe }};
+
+        const ctx = document.getElementById('survivalChart').getContext('2d');
+        const survivalChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Men', 'Women'],
+                datasets: [{
+                    label: 'Number of Survivors',
+                    data: survivalData,
+                    backgroundColor: ['#3498db', '#e74c3c'],
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -4,12 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My first dynamic Website</title>
+    <title>My second dynamic Website</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 </head>
 
 <body>
     <main>
+        <header>
+            <nav>
+            <ul style="display: flex; list-style-type: none; padding: 0; margin: 0;">
+                <li><a href="{{ url_for('hello') }}">Home</a></li>
+                <li><a href="{{ url_for('titanic') }}">Titanic</a></li>
+                <li><a href="https://github.com/sam-1-point-4" target="_blank">About</a></li>
+            </ul>
+            </nav>
+        </header>
         <h1>I have been seen {{ count }} times.</h1>
         <ul>
             {% for i in range(1, count+1) %}
@@ -17,19 +26,12 @@
             {% endfor %}
         </ul>
         <p>Visit <a href="https://www.hwr-berlin.de/prof/frank-habermann" target="_blank">HWR Berlin</a> for more information on BIPM.</p>
-        <img src="{{ url_for('static', filename='D:\Project\docker\hello.png') }}" />
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('hello') }}">Home</a></li>
-                <li><a href="{{ url_for('titanic') }}">Titanic</a></li>
-                <li><a href="https://github.com/sam-1-point-4" target="_blank">About</a></li>
-            </ul>
-        </nav>
+        <img src="\images\hello.png" />
         <p>Click <a href="{{ url_for('hello') }}">here</a> to see me again!</p>
     </main>
 </body>
 
 <footer>
     <p>Created by Sam 1.4, not the SAM system of HWR Berlin</p>
-    <p>Copyright © 2025 Sam</p>
+    <p>Copyright © 2025 Sam 1.4</p>
 </html>
