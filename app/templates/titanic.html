@@ -10,23 +10,19 @@
             max-width: 400px; 
             max-height: 570px;
         }
-        img {
-            max-width: 300px;
-            max-height: 570px;
-            margin-left: 20px;
-        }
     </style>
 </head>
 <body>
-    <h1>Titanic Survival Chart</h1>
-    <p>This chart shows the number of survivors from the Titanic disaster based on Sex.</p>
-    <p>Data Source: Titanic Dataset</p>
+    <div style="text-align: center;">
+        <h1>Titanic Survival Chart</h1>
+        <p>This chart shows the number of survivors from the Titanic disaster based on Sex.</p>
+        <p>Data Source: Titanic Dataset</p>
+        <hr>
+    </div>
     <div style="display: flex; align-items: center; justify-content: center;">
         <canvas id="survivalChart"></canvas>
-        <img src='images/titanic.jpg' alt="Titanic">
     </div>
     <script>
-
         const survivalData = {{ survival_data|safe }};
 
         const ctx = document.getElementById('survivalChart').getContext('2d');
